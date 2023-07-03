@@ -11,11 +11,7 @@ $combo = "$($path)$($version)$($file)"
 $xml = [xml](Get-Content "$($path)$($version)$($file)")
 $node = $xml.configuration.usersettings."CentraStage.Cag.Core.Settings".setting | where {$_.Name -eq 'PrivacyMode'}
 
-If ($node.value -eq 'False')
-{
-$node.value = 'True'
-}
-Else
+If ($node.value -eq 'True')
 {
 $node.value = 'False'
 }
